@@ -83,6 +83,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product-category.product-category"
+    },
+    "product_tag": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-tag.product-tag"
+    },
+    "discount": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::discount.discount"
     }
   }
 }
