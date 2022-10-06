@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_product_attributes",
+  "info": {
+    "displayName": "Attribute",
+    "icon": "air-freshener"
+  },
+  "options": {},
+  "attributes": {
+    "group": {
+      "type": "enumeration",
+      "enum": [
+        "storage",
+        "size",
+        "color",
+        "depth",
+        "surface"
+      ],
+      "default": "size",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true,
+      "default": "XL"
+    }
+  }
+}
