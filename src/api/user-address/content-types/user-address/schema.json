@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_addresses",
+  "info": {
+    "singularName": "user-address",
+    "pluralName": "user-addresses",
+    "displayName": "User address",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "map_zone": {
+      "type": "string",
+      "required": true
+    },
+    "additional_address_zone": {
+      "type": "string",
+      "required": true
+    },
+    "contact_phone": {
+      "type": "integer",
+      "required": true
+    },
+    "address_name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

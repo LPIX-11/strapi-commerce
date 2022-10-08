@@ -15,10 +15,13 @@
     "@strapi/plugin-i18n": "4.4.3",
     "@strapi/plugin-users-permissions": "4.4.3",
     "@strapi/strapi": "4.4.3",
-    "better-sqlite3": "7.4.6"
+    "better-sqlite3": "7.4.6",
+    "strapi-plugin-entity-relationship-chart": "^4.1.0",
+    "strapi-plugin-rest-cache": "^4.2.4",
+    "strapi-provider-rest-cache-memory": "^4.2.4"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Mohamed Johnson"
   },
   "strapi": {
     "uuid": "9e74e549-4bd0-4d6e-92c1-fb92649572bf"
