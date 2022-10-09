@@ -8,8 +8,9 @@ const { asyncForEach } = require('../../../utils/default-utils');
 
 const { createCoreController } = require('@strapi/strapi').factories;
 const shopping_session_name = 'shopping-session';
+const controller_cart_api_name = 'api::shopping-cart.shopping-cart';
 
-module.exports = createCoreController('api::shopping-cart.shopping-cart', ({ strapi }) => ({
+module.exports = createCoreController(controller_cart_api_name, ({ strapi }) => ({
   async create(ctx) {
 
     if (ctx.request.header[shopping_session_name]) {
@@ -18,8 +19,16 @@ module.exports = createCoreController('api::shopping-cart.shopping-cart', ({ str
       // Retrieve shopping session
       const shopping_session = await strapi.entityService.findMany(`api::${shopping_session_name}.${shopping_session_name}`, { filters: { session_token: commerce_cart_session } });
 
-
       const { data } = ctx.request.body;
+
+      // Checking existing cart
+      const session_cart = await strapi.entityService.findMany(controller_cart_api_name, {
+        filters: { shopping_session: shopping_session[0].id },
+        populate: { order_items: { populate: { product: true } } }
+      });
+
+      console.log(session_cart[0].order_items.find(val => val.product.id == 1))
+      throw new Error()
 
       // building order items
       let order_items = [];
@@ -40,6 +49,12 @@ module.exports = createCoreController('api::shopping-cart.shopping-cart', ({ str
           product.variations[item.variation].attributes.map((item) => {
             delete item.id
           })
+
+          let item_found;
+
+          if (session_cart.length) {
+            item_found = session_cart[0].order_items.find(ordered_item => ordered_item.product.id == item.product_id)
+          }
 
           const order_item = await strapi.entityService.create('api::order-item.order-item', {
             data: {
