@@ -17,6 +17,8 @@
     "@strapi/strapi": "4.4.3",
     "better-sqlite3": "7.4.6",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
+    "strapi-plugin-local-image-sharp": "^1.2.0",
+    "strapi-plugin-menus": "^1.1.0",
     "strapi-plugin-rest-cache": "^4.2.4",
     "strapi-provider-rest-cache-memory": "^4.2.4"
   },
